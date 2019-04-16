@@ -1,5 +1,6 @@
 package com.ansari.b18fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,7 @@ import android.widget.Button;
 
 public class FragmentOne extends Fragment {
 
-
+MyInterface myInterface;
     Button passDataButton;
     @Nullable
     @Override
@@ -23,18 +24,25 @@ public class FragmentOne extends Fragment {
             @Override
             public void onClick(View v) {
 
-                FragmentTwo fragmentTwo = new FragmentTwo();
+               /* FragmentTwo fragmentTwo = new FragmentTwo();
                 Bundle bundle = new Bundle();
                 bundle.putString("key","Ansari");
 
                 fragmentTwo.setArguments(bundle);
 
                 getFragmentManager().beginTransaction().replace(R.id.mylayout,fragmentTwo).commit();
-
+*/
+               myInterface.myMethod("Hello Guys");
 
 
             }
         });
         return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        myInterface = (MyInterface) getActivity();
     }
 }

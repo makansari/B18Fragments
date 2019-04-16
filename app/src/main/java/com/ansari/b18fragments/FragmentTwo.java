@@ -19,11 +19,17 @@ public class FragmentTwo extends Fragment {
 
         textView = view.findViewById(R.id.textViewResult);
 
-        Bundle bundle = getArguments();
+        /*Bundle bundle = getArguments();
         String res = bundle.getString("key");
-        textView.setText(res);
+        textView.setText(res);*/
 
 
         return view;
+    }
+
+    public void getMyData(String myData){
+
+        textView.setText(myData);
+
     }
 }
